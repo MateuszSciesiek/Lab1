@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      function kalendarzLayout() {
+  const kalendarz = document.querySelector('.kalendarz');
+  kalendarz.classList.toggle('flex');
+  kalendarz.classList.toggle('grid');
+  const cal = document.querySelector('.cal');
+  cal.classList.toggle('flex');
+  cal.classList.toggle('grid');
+  const weekedny = document.querySelector('.weekendy');
+  weekedny.classList.toggle('flex');
+  weekedny.classList.toggle('grid');
+  const numer = document.querySelector('.numer');
+  numer.classList.toggle('flex');
+  numer.classList.toggle('grid');
+  const dni = document.querySelector('.dni');
+  dni.classList.toggle('flex');
+  dni.classList.toggle('grid');
+  const header = document.querySelector('.dni');
+  header.classList.toggle('flex');
+  header.classList.toggle('grid');
+      }
+    </script>
+    <style>
+body {
+    counter-set: myCnt 0;
+}
+
+.cal div{
+    counter-increment: myCnt;
+}
+
+.cal div::after {
+    content: counter(myCnt);
+}
+.kalendarz {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    font-family: sans-serif;
+
+}
+
+.kalendarz.flex {
+    display: flex; 
+    flex-wrap: wrap;
+	flex-direction: column;
+    
+}
+.header {
+    grid-row: 1;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.header.flex{
+    display: none;
+}
+.weekedny {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 10px;
+}
+.weekedny .flex{
+    display: none;
+}
+
+.cal {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+}
+.cal.flex {
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
+    width: 70%;
+    align-self: center;
+}
+.cal div:first-child {
+    grid-column: 3;
+}
+.numer {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #d30404;
+    padding: 10px;
+    font-size: 16px;
+  
+}
+.flex .dni{
+    display:none;
+}
+
+.dni:nth-of-type(1)::before {
+    content: "Poniedziałek";
+}
+.dni:nth-of-type(2)::before {
+    content: "Wtorek";
+}
+.dni:nth-of-type(3)::before {
+    content: "Środa";
+}
+.dni:nth-of-type(4)::before {
+    content: "Czwartek";
+}
+.dni:nth-of-type(5)::before {
+    content: "Piątek";
+}
+.dni:nth-of-type(6)::before {
+    content: "Sobota";
+}
+.dni:nth-of-type(7)::before {
+    content: "Niedziela";
+}
+
+.flex .cal .numer:nth-child(7n+6)::after {
+    content:"Poniedziałek " counter(myCnt) ;
+}
+
+.flex .cal .numer:nth-child(7n+7)::after {
+    content:"Wtorek " counter(myCnt) ;
+}
+
+.flex .cal .numer:nth-child(7n+1)::after {
+    content:"Środa "counter(myCnt) ;
+}
+
+.flex .cal .numer:nth-child(7n+2)::after {
+    content:"Czwartek "counter(myCnt) ;
+}
+
+.flex .cal .numer:nth-child(7n+3)::after {
+    content:"Piątek "  counter(myCnt);
+}
+
+.flex .cal .numer:nth-child(7n+4)::after {
+    content:"Sobota "  counter(myCnt);
+}
+
+.flex .cal .numer:nth-child(7n+5)::after {
+    content:"Niedziela " counter(myCnt);
+}
+
+    </style>
+
+</head>
+<body>
+  <button onclick="kalendarzLayout()">Zmień wygląd kalendarza</button>
+
+<div class="kalendarz">
+  
+    <div class="header">Marzec 2023</div>
+    <section class="weekedny">
+      <div class="dni"></div>
+      <div class="dni"></div>
+      <div class="dni"></div>
+      <div class="dni"></div>
+      <div class="dni"></div>
+      <div class="dni"></div>
+      <div class="dni"></div>
+    </section>
+      <section class="cal"> 
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+      <div class="numer"></div>
+    
+    </section>
+  </div>
+  
+
+</body>
+</html>
